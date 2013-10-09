@@ -1,0 +1,4 @@
+.this-is-file-001 {  color: #111111;  background: #111111;  border: 1px solid red;}
+.this-is-file-002-ref-001 {  color: #222222;  background: #222222;  border: 2px solid gray;}
+.this-is-file-000-ref-002 {  color: white;  background: white;  border: 100px solid red;}
+.normal-css-no-ref{    box-shadow: red 10px 10px inset;}
