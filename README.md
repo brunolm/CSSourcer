@@ -14,7 +14,6 @@ Given a folder, it will read the folder and all subfolders and then
   generate a single CSS file without minification other than newline removal
   
 Usage syntax:
-==
 
   <Mode> <StyleFolder-1> <OutputPath-1> [<StyleFolder-N> <OutputPath-N>]
   
