@@ -13,9 +13,11 @@ Given a folder, it will read the folder and all subfolders and then
 - If the config is set as `Release` it will be minified, otherwise it will
   generate a single CSS file without minification other than newline removal
   
-Usage syntax:
 
-    <Mode> <StyleFolder-1> <OutputPath-1> [<StyleFolder-N> <OutputPath-N>]
+Usage syntax
+-------------
+
+    cssourcer <Debug|Release> <StyleFolder-1> <OutputPath-1> [<StyleFolder-N> <OutputPath-N>]
   
 Example (the project is configured to do this when you run in Debug/Release):
 
@@ -35,6 +37,10 @@ When bundling, instead of the order of the files in the folder, the output will 
     002-test.less contents
     000-test.less contents
     normal.css    contents
+
+
+References
+-------------
 
 To add references, put at the top of the file
 
