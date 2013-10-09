@@ -71,6 +71,7 @@
     <Folder Include="Example\Output\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Example\Input\cssref.css" />
     <Content Include="Example\Input\normal.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

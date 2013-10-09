@@ -11,7 +11,7 @@ namespace CSSourcer
 {
     public class StyleCompiler
     {
-        private static Regex ReferenceExp = new Regex(@"^\/\/\/\s*<reference\s+path=""(.*?)""", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        private static Regex ReferenceExp = new Regex(@"^(?:\/\/\/|\/\*)\s*<reference\s+path=""(.*?)""", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         private static StringBuilder Compiled = new StringBuilder();
         private static HashSet<string> CompiledFiles = new HashSet<string>();

@@ -1,0 +1,6 @@
+/* <reference path="normal.css" /> */
+
+.css-ref-normal
+{
+    box-shadow: red 10px 10px inset;
+}
