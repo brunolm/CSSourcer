@@ -15,30 +15,30 @@ Given a folder, it will read the folder and all subfolders and then
   
 Usage syntax:
 
-  <Mode> <StyleFolder-1> <OutputPath-1> [<StyleFolder-N> <OutputPath-N>]
+    <Mode> <StyleFolder-1> <OutputPath-1> [<StyleFolder-N> <OutputPath-N>]
   
 Example (the project is configured to do this when you run in Debug/Release):
 
-  Debug   "..\..\Example\Input\\" "..\..\Example\Output\all.css"
-  Release "..\..\Example\Input\\" "..\..\Example\Output\all.css"
+    Debug   "..\..\Example\Input\\" "..\..\Example\Output\all.css"
+    Release "..\..\Example\Input\\" "..\..\Example\Output\all.css"
 
 In the example:
 
-  000-test.less            -> references -> subfolder\002-test.less
-  subfolder\002-test.less  -> references -> ..\001-test.less
-  001-test.less            -> references -> null
-  normal.css               -> references -> null
+    000-test.less            -> references -> subfolder\002-test.less
+    subfolder\002-test.less  -> references -> ..\001-test.less
+    001-test.less            -> references -> null
+    normal.css               -> references -> null
   
 When bundling, instead of the order of the files in the folder, the output will be:
 
-  001-test.less contents
-  002-test.less contents
-  000-test.less contents
-  normal.css    contents
+    001-test.less contents
+    002-test.less contents
+    000-test.less contents
+    normal.css    contents
 
 To add references, put at the top of the file
 
-  /// <reference path="path.less" />
+    /// <reference path="path.less" />
 
 
 You don't need to use LESS if you don't want to, you can use purely CSS.
