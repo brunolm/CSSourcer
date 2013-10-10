@@ -3,6 +3,8 @@ CSSourcer
 
 CSSourcer is a program that will simplify the process of bundling and minification.
 
+Check a video tutorial: http://www.youtube.com/watch?v=btjp4CxVm7k&ref=git
+
 The steps it takes to create a single CSS file is as follows:
 
 Given a folder, it will read the folder and all subfolders and then
