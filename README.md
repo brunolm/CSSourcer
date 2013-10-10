@@ -29,6 +29,7 @@ In the example:
     000-test.less            -> references -> subfolder\002-test.less
     subfolder\002-test.less  -> references -> ..\001-test.less
     001-test.less            -> references -> null
+    cssref.css               -> references -> normal.css
     normal.css               -> references -> null
   
 When bundling, instead of the order of the files in the folder, the output will be:
@@ -37,6 +38,7 @@ When bundling, instead of the order of the files in the folder, the output will 
     002-test.less contents
     000-test.less contents
     normal.css    contents
+    cssref.css    contents
 
 
 References
@@ -45,6 +47,10 @@ References
 To add references, put at the top of the file
 
     /// <reference path="path.less" />
+
+or
+
+    /* <reference path="path.css" /> */
 
 
 You don't need to use LESS if you don't want to, you can use purely CSS.
