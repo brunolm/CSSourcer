@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using dotless.Core;
 using System.IO;
 using dotless.Core.configuration;
+using System.Text.RegularExpressions;
 
 namespace CSSourcer
 {
@@ -24,7 +25,21 @@ namespace CSSourcer
             Parallel.ForEach(files,
                 f =>
                 {
-                    var compiledLESS = Less.Parse(File.ReadAllText(f), Config);
+                    var compiledLESS = File.ReadAllText(f);
+                    compiledLESS = Regex.Replace(compiledLESS, @"@import\s*""(?<Path>.*?)""\s*;\s*",
+                        (m) => 
+                        {
+                            var reference = m.Groups["Path"].Value;
+
+                            if (!String.IsNullOrEmpty(reference) && !Path.IsPathRooted(reference))
+                                reference = Path.Combine(new FileInfo(f).Directory.FullName, reference);
+
+                            StyleCompiler.ImportedFiles.Add(reference);
+                            return String.Format("@import \"{0}\";\r\n", reference);
+                        }
+                        , RegexOptions.IgnoreCase);
+
+                    compiledLESS = Less.Parse(compiledLESS, Config);
 
                     File.WriteAllText(f + ".css", compiledLESS);
                 });

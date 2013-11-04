@@ -15,6 +15,7 @@ namespace CSSourcer
 
         private static StringBuilder Compiled = new StringBuilder();
         private static HashSet<string> CompiledFiles = new HashSet<string>();
+        public static HashSet<string> ImportedFiles = new HashSet<string>();
 
         private static Minifier Min = new Minifier();
 
@@ -69,7 +70,7 @@ namespace CSSourcer
                     }
 
                     if (String.IsNullOrEmpty(reference))
-                        Compiled.Append(line);
+                        Compiled.AppendLine(line);
                 }
                 Compiled.AppendLine();
             }
@@ -83,6 +84,16 @@ namespace CSSourcer
         /// <returns></returns>
         public static string CompileAll(string sourcePath, Program.ConfigurationType configType)
         {
+            foreach (var f in ImportedFiles)
+            {
+                var s = f;
+                if (f.EndsWith(".less", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    s += ".css";
+                }
+                CompiledFiles.Add(FileHash.GetMd5(s));
+            }
+
             var files = Directory.GetFiles(sourcePath, "*.css", SearchOption.AllDirectories).ToList();
 
             foreach (var f in files)

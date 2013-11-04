@@ -1,11 +1,13 @@
-/// <reference path="..\001-test.less" />
+// <reference path="..\001-test.less" />
+
+@import "..\001-test.less";
 
 @c: #222;
 @somevarhere: #fff;
 
 .this-is-file-002-ref-001
 {
-    color: @c;
+    color: @varfrom001;
     background: @c;
     border: 2px solid gray;
 }
